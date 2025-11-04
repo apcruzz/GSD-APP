@@ -5,7 +5,7 @@ export const islands: Island[] = [
     id: 'samoa',
     name: 'Samoa',
     emoji: '🌺',
-    color: 'from-blue-500 to-cyan-500',
+    color: '#0ea5e9',//from-blue-500 to-cyan-500
     sections: {
       history: 'Samoa has been inhabited for over 3,000 years. The Samoan islands were first settled by Lapita people around 1500 BCE. European contact began in the 18th century, and Samoa became independent in 1962, making it the first Pacific island nation to gain independence.',
       culture: 'Samoan culture is built on the fa\'a Samoa, or "the Samoan way," which emphasizes community, family, and respect for elders. The matai (chief) system remains central to village governance. Traditional arts include siapo (bark cloth), tatau (tattooing), and siva (dance).',
@@ -17,7 +17,7 @@ export const islands: Island[] = [
     id: 'aotearoa',
     name: 'Aotearoa (New Zealand)',
     emoji: '🌿',
-    color: 'from-green-500 to-emerald-500',
+    color: '#10b981',//from-green-500 to-emerald-500
     sections: {
       history: 'The Māori people arrived in Aotearoa around 1250-1300 CE in great voyaging canoes (waka). Each iwi (tribe) traces its lineage to specific waka. European contact began in 1642 with Abel Tasman, and the Treaty of Waitangi was signed in 1840.',
       culture: 'Māori culture emphasizes whakapapa (genealogy), mana (prestige), and kaitiakitanga (guardianship). The marae (communal meeting ground) is central to community life. Traditional arts include whakairo (carving), tā moko (tattooing), and kapa haka (performing arts).',
@@ -29,7 +29,7 @@ export const islands: Island[] = [
     id: 'hawaii',
     name: 'Hawaiʻi',
     emoji: '🌴',
-    color: 'from-orange-500 to-red-500',
+    color: '#f97316',//'from-orange-500 to-red-500',
     sections: {
       history: 'Ancient Hawaiians arrived from Marquesas Islands around 400 CE, with a second wave from Tahiti around 1000 CE. King Kamehameha I unified the islands in 1810. Hawaii became a US territory in 1898 and the 50th state in 1959.',
       culture: 'Hawaiian culture centers on aloha (love and compassion), \'ohana (family), and mālama \'āina (caring for the land). The kapu system regulated ancient society. Traditional practices include hula (dance), oli (chant), and lua (martial art). Respect for kupuna (elders) is paramount.',
@@ -41,7 +41,7 @@ export const islands: Island[] = [
     id: 'tonga',
     name: 'Tonga',
     emoji: '👑',
-    color: 'from-red-500 to-pink-500',
+    color: '#ec4899',//from-red-500 to-pink-500,
     sections: {
       history: 'Tonga has been inhabited for over 3,000 years. The Tuʻi Tonga Empire ruled much of Polynesia from 950-1865 CE. Tonga never lost its sovereignty to colonial powers and remains the only Polynesian monarchy. The current dynasty was founded in 1845.',
       culture: 'Tongan culture emphasizes respect (faka\'apa\'apa), family loyalty, and the monarchy. The social hierarchy includes royalty, nobles, and commoners. Traditional arts include ngatu (decorated bark cloth), lalanga (weaving), and lakalaka (group dance). Gift-giving is central to relationships.',
@@ -53,7 +53,7 @@ export const islands: Island[] = [
     id: 'fiji',
     name: 'Fiji',
     emoji: '🥥',
-    color: 'from-teal-500 to-blue-500',
+    color: '#14b8a6',//'from-teal-500 to-blue-500',
     sections: {
       history: 'Fiji was settled around 3,500 years ago by Austronesian peoples, later influenced by Melanesian culture. The islands were unified under Cakobau in 1871. Fiji became a British colony in 1874 and gained independence in 1970. The culture blends indigenous Fijian and Indian influences.',
       culture: 'Fijian culture centers on vanua (land and people), loloma (love and hospitality), and communal living. The mataqali (clan) system organizes society. Traditional practices include meke (dance and storytelling), pottery, and masterful navigation. Chiefs (turaga) command great respect.',
@@ -65,7 +65,7 @@ export const islands: Island[] = [
     id: 'french-polynesia',
     name: 'French Polynesia',
     emoji: '🏝️',
-    color: 'from-purple-500 to-pink-500',
+    color: '#a855f7',//'from-purple-500 to-pink-500',
     sections: {
       history: 'The islands were settled by Polynesians around 1000 BCE. European contact began with Spanish explorers in 1521. France established a protectorate in 1842, and the islands became an overseas territory in 1946. The region includes Tahiti, Bora Bora, and the Marquesas Islands.',
       culture: 'Tahitian and wider Ma\'ohi culture emphasizes \'aita pea pea (no worries), family, and connection to nature. Traditional arts include \'orero (oratory), tapa cloth making, and himene (polyphonic singing). Tattoo art has seen a major revival, reconnecting with ancient traditions.',
