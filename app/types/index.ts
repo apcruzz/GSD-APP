@@ -3,6 +3,7 @@ export interface Island {
   name: string;
   emoji: string;
   color: string;
+  image: any; // Update this type based on how images are handled in your project
   sections: {
     overview: string;
     history: string;

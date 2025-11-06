@@ -6,10 +6,9 @@ export const islands: Island[] = [
     name: 'Samoa',
     emoji: '🌺',
     color: 'from-blue-500 to-cyan-500',
+    image: require('../../assets/images/samoa2.png'),
     sections: {
         overview:  
-        
-        
 `## SAMOA & AMERIKA SAMOA
 **Greeting Word: Talofa**
 **Current Population: 260,000**
@@ -251,9 +250,12 @@ Samoan women were also tattooed, but usually in lesser quantity.
     name: 'Aotearoa (New Zealand)',
     emoji: '🌿',
     color: 'from-green-500 to-emerald-500',
+    image: require('../../assets/images/NZ.png'),
     sections: {
-      overview:`Greeting Word: Kia ora
-Current Population: 5.1 million
+      overview:`
+      ## AOTEAROA: NEW ZEALAND
+      __Greeting Word: Kia ora__
+      __Current Population: 5.1 million__
 
 Aotearoa, located about 4,606 miles [7,412 km] from Hawaii, forms the
 southwest apex of the Polynesian Triangle. The country covers approximately
@@ -514,6 +516,7 @@ storytelling.`,
     name: 'Hawaiʻi',
     emoji: '🌴',
     color: 'from-orange-500 to-red-500',
+    image: require('../../assets/images/hawaii1.png'),
     sections: {
       overview: `Greeting Word: Aloha
 Current Population: 1.3 million
@@ -782,6 +785,7 @@ protein.`,
     name: 'Tonga',
     emoji: '👑',
     color: 'from-red-500 to-pink-500',
+    image: require('../../assets/images/tonga1.png'),
     sections: {
       overview: `TONGA
 “MALO E LELEI!” is the greeting word in Tonga.
@@ -954,6 +958,7 @@ Image: Queen Salote hosts Queen Elizabeth II & the Duke of Edinburgh during thei
     name: 'Fiji',
     emoji: '🥥',
     color: 'from-teal-500 to-blue-500',
+    image: require('../../assets/images/fiji2.png'),
     sections: {
       overview: `Greeting Word: Bula Vinaka
 Current Population: 930,000
@@ -1241,6 +1246,7 @@ end and were used to crush skulls easily.`,
     name: 'Tahiti (French Polynesia)',
     emoji: '🏝️',
     color: 'from-purple-500 to-pink-500',
+    image: require('../../assets/images/tahiti1.png'),
     sections: {
       overview: `Greeting Word: Ia Orana
 Current Population: 180,000-Tahiti (280,000- French Polynesia)
@@ -1484,6 +1490,7 @@ and high blood pressure.`,
     name: 'Rapa Nui (Easter Island)',
     emoji: '🗿',
     color: 'from-gray-700 to-gray-500',
+    image: require('../../assets/images/rn.png'),
     sections: {
       overview: ``,
       history: 'Archaeological evidence indicates discovery by Polynesians around 400 AD, led according to legend by Chief Hotu Matu\'a from what is now French Polynesia. Dutch Admiral Jacob Roggeveen came upon Rapa Nui on Easter Sunday 1722, hence the English name. In 1852 Chile annexed the island, where it remains a territory today. The island once supported a population as large as 10,000, but European diseases and indentured labor decimated it to only 111 people in the early 1900s. Today about 3,000 people live there. The island was once covered with trees, all cut down possibly to aid in constructing and transporting the almost 900 moai.',

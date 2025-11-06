@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react-native";
 import React from "react";
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { islands } from "../data/islands";
 
 interface IslandGridProps {
@@ -14,11 +14,13 @@ export function IslandGrid({ onSelectIsland }: IslandGridProps) {
         <TouchableOpacity
           key={island.id}
           onPress={() => onSelectIsland(island.id)}
-          style={[styles.islandButton, { backgroundColor: island.color || "#f59e0b" }]}
+          style={styles.islandCard}
           activeOpacity={0.8}
         >
-          <Text style={styles.islandEmoji}>{island.emoji}</Text>
-          <Text style={styles.islandName}>{island.name}</Text>
+          <Image source={island.image} style={styles.islandImage} resizeMode="cover" />
+          <View style={styles.overlay}>
+            <Text style={styles.islandName}>{island.name}</Text>
+          </View>
         </TouchableOpacity>
       ))}
     </View>
@@ -48,33 +50,7 @@ export function IslandDetail({ islandId, onBack }: IslandDetailProps) {
           <Text style={styles.headerTitle}>{island.name}</Text>
         </View>
       </View>
-  {/* COMMENTED THIS OUT, THIS BLOCK PRINTS ALL THE CONTENT INSTEAD OF THE CLICKABLE SECTIONS */}
-      {/* <View style={styles.content}>
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Overview</Text>
-          <Text style={styles.sectionText}>{island.sections.overview}</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>History</Text>
-          <Text style={styles.sectionText}>{island.sections.history}</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Culture</Text>
-          <Text style={styles.sectionText}>{island.sections.culture}</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Traditions</Text>
-          <Text style={styles.sectionText}>{island.sections.traditions}</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Language</Text>
-          <Text style={styles.sectionText}>{island.sections.language}</Text>
-        </View>
-      </View> */}
+      {/* You can re-enable your section cards here later if needed */}
     </ScrollView>
   );
 }
@@ -86,23 +62,30 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 16,
   },
-  islandButton: {
+  islandCard: {
     width: "48%",
     aspectRatio: 1,
     borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
+    overflow: "hidden", // keeps image within rounded corners
     marginBottom: 12,
     elevation: 3,
+    backgroundColor: "#ccc",
   },
-  islandEmoji: {
-    fontSize: 48,
-    marginBottom: 8,
+  islandImage: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)", // adds a dark tint for text readability
   },
   islandName: {
     color: "white",
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: 18,
+    fontWeight: "700",
     textAlign: "center",
   },
   detailContainer: {
@@ -135,24 +118,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "700",
   },
-  content: {
-    padding: 16,
-  },
-  card: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    elevation: 2,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 8,
-  },
-  sectionText: {
-    fontSize: 15,
-    color: "#374151",
-    lineHeight: 22,
-  },
 });
+
+export default IslandGrid;
