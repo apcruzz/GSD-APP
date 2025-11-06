@@ -1,14 +1,18 @@
 import { Map } from "lucide-react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { FunFactCard } from "./components/FunFactCard";
 import { IslandDetail, IslandGrid } from "./components/IslandGridDetails";
+import KnowledgeCard from "./components/KnowledgeCard";
+import { funFacts } from "./data/islands";
 
 type ViewType = "home" | "island-detail";
 
 export default function App() {
   const [view, setView] = useState<ViewType>("home");
   const [selectedIsland, setSelectedIsland] = useState<string | null>(null);
+  const [funFact, setFunFact] = useState<string>('');
 
   const handleSelectIsland = (islandId: string) => {
     setSelectedIsland(islandId);
@@ -20,11 +24,24 @@ export default function App() {
     setSelectedIsland(null);
   };
 
+  useEffect(() => {
+    const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+    setFunFact(randomFact);
+  }, []);
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
         {view === "island-detail" && selectedIsland ? (
-          <IslandDetail islandId={selectedIsland} onBack={handleBackToHome} />
+          <ScrollView> 
+            {/* Island detail content */}
+            <IslandDetail islandId={selectedIsland} onBack={handleBackToHome} />
+
+            {/* Knowledge Card below island detail */}
+            <View style={styles.knowledgeSection}>
+              <KnowledgeCard islandId={selectedIsland} />
+            </View>
+          </ScrollView>
         ) : (
           <>
             {/* Header */}
@@ -33,6 +50,12 @@ export default function App() {
               <Text style={styles.subtitle}>Discover the Islands of Polynesia</Text>
             </View>
 
+            {/* Fun Fact */}
+            <View style={{ marginTop: 16 }}>
+              <FunFactCard facts={funFact} />
+            </View>
+
+            {/* Island Grid */}
             <ScrollView style={styles.scroll}>
               <Text style={styles.sectionTitle}>Explore Islands</Text>
               <IslandGrid onSelectIsland={handleSelectIsland} />
@@ -77,4 +100,5 @@ const styles = StyleSheet.create({
   navBtn: { alignItems: "center" },
   navText: { fontSize: 12, color: "#6b7280" },
   navTextActive: { color: "#2563eb", fontWeight: "600" },
+  knowledgeSection: { padding: 16 },
 });

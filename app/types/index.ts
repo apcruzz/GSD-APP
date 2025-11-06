@@ -4,6 +4,7 @@ export interface Island {
   emoji: string;
   color: string;
   sections: {
+    overview: string;
     history: string;
     culture: string;
     traditions: string;

@@ -3,7 +3,6 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { islands } from "../data/islands";
 
-
 interface IslandGridProps {
   onSelectIsland: (islandId: string) => void;
 }
@@ -49,8 +48,13 @@ export function IslandDetail({ islandId, onBack }: IslandDetailProps) {
           <Text style={styles.headerTitle}>{island.name}</Text>
         </View>
       </View>
+  {/* COMMENTED THIS OUT, THIS BLOCK PRINTS ALL THE CONTENT INSTEAD OF THE CLICKABLE SECTIONS */}
+      {/* <View style={styles.content}>
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>Overview</Text>
+          <Text style={styles.sectionText}>{island.sections.overview}</Text>
+        </View>
 
-      <View style={styles.content}>
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>History</Text>
           <Text style={styles.sectionText}>{island.sections.history}</Text>
@@ -70,7 +74,7 @@ export function IslandDetail({ islandId, onBack }: IslandDetailProps) {
           <Text style={styles.sectionTitle}>Language</Text>
           <Text style={styles.sectionText}>{island.sections.language}</Text>
         </View>
-      </View>
+      </View> */}
     </ScrollView>
   );
 }
