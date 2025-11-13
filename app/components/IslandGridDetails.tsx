@@ -1,7 +1,7 @@
 import { ArrowLeft } from "lucide-react-native";
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { islands } from "../data/islands";
+import { islands } from "../data/isla";
 
 interface IslandGridProps {
   onSelectIsland: (islandId: string) => void;
@@ -60,14 +60,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    padding: 16,
+    padding: 4,
   },
   islandCard: {
     width: "48%",
     aspectRatio: 1,
     borderRadius: 16,
     overflow: "hidden", // keeps image within rounded corners
-    marginBottom: 12,
+    marginBottom: 8,
     elevation: 3,
     backgroundColor: "#ccc",
   },
@@ -78,9 +78,11 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
+    justifyContent: "flex-end", // 👈 moves the text to the bottom
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.3)", // adds a dark tint for text readability
+    // backgroundColor: "rgba(0,0,0,0.25)", // still keeps the overlay tint
+    paddingBottom: 30, // 👈 adds space between text and bottom
   },
   islandName: {
     color: "white",

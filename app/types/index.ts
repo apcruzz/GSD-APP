@@ -1,3 +1,8 @@
+export interface IslandSection {
+  image: any; // require() reference to your image
+  paragraphs: string[]; // array of plain text strings
+}
+
 export interface Island {
   id: string;
   name: string;
@@ -5,11 +10,11 @@ export interface Island {
   color: string;
   image: any; // Update this type based on how images are handled in your project
   sections: {
-    overview: string;
-    history: string;
-    culture: string;
-    traditions: string;
-    language: string;
+    overview: IslandSection;
+    history: IslandSection;
+    traditions: IslandSection;
+    culture: IslandSection;
+    language: IslandSection;
   };
 }
 

@@ -5,7 +5,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { FunFactCard } from "./components/FunFactCard";
 import { IslandDetail, IslandGrid } from "./components/IslandGridDetails";
 import KnowledgeCard from "./components/KnowledgeCard";
-import { funFacts } from "./data/islands";
+import { funFacts } from "./data/isla";
 
 type ViewType = "home" | "island-detail";
 

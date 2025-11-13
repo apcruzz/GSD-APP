@@ -1,68 +1,11 @@
 import React, { useState } from "react";
-import {
-    LayoutAnimation,
-    Platform,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    UIManager,
-    View
-} from "react-native";
-import Markdown from 'react-native-markdown-display';
-import { islands } from "../data/islands";
+import { Image, LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from "react-native";
+import { islands } from "../data/isla";
 
 // Enable animation for Android
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 0,
-  },
-  card: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "600",
-    color: "#374151",
-    marginBottom: 4,
-    textAlign: "center",
-  },
-  sectionText: {
-    fontSize: 16,
-    color: "#4b5563",
-    lineHeight: 20,
-    marginTop: 8,
-  },
-  toggleHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  arrow: {
-    fontSize: 18,
-    color: "#2563eb",
-  },
-});
-
-
-const MARKDOWN_STYLES = {
-  body: { fontSize: 16, color: '#4b5563' },
-  u: { textDecorationLine: 'underline', textDecorationColor: '#0ea5e9' },
-  strong: { fontWeight: 'bold', color: '#1f2937' },
-  heading2: { fontSize: 20, fontWeight: 'bold', color: '#0ea5e9', textDecorationLine: 'underline' },
-} as const; // Or as { [key: string]: TextStyle }
-
 
 function KnowledgeCard({ islandId }: { islandId: string }) {
   const island = islands.find((i) => i.id === islandId);
@@ -97,12 +40,92 @@ function KnowledgeCard({ islandId }: { islandId: string }) {
               <Text style={styles.arrow}>{expandedSection === key ? "▲" : "▼"}</Text>
             </View>
 
-            {expandedSection === key && <Markdown style={MARKDOWN_STYLES}>{content}</Markdown>}
+            {expandedSection === key && (
+              <View>
+                {/* Image + first paragraph side by side */}
+                {/* <View style={styles.row}>
+                  {content.image && (
+                    <Image source={content.image} style={styles.image} resizeMode="cover" />
+                  )}
+                  <Text style={styles.paragraph}>{content.paragraphs[0]}</Text>
+                </View> */}
+
+                {/* Remaining paragraphs below */}
+                {content.paragraphs.map((p: string, i: number) => (
+                    <View key={i} style={{ marginBottom: 10 }}>
+                        {/* render paragraph */}
+                        <Text style={styles.paragraphs}>{p}</Text>
+
+                        {/* render any images linked to this paragraph index */}
+                        {content.image &&
+                        content.image
+                            .filter((img: any) => img.index === i)
+                            .map((img: any, j: number) => (
+                            <Image
+                                key={j}
+                                source={img.source}
+                                style={styles.image}
+                                resizeMode="cover"
+                            />
+                            ))}
+                    </View>
+                ))}
+              </View>
+            )}
           </View>
         </TouchableOpacity>
       ))}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { padding: 0 },
+  card: {
+    backgroundColor: "white",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#374151",
+    marginBottom: 4,
+    textAlign: "center",
+  },
+  paragraphs: {
+    fontSize: 16,
+    color: "#4b5563",
+    lineHeight: 22,
+    flex: 1,
+    marginBottom: 10,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 12,
+  },
+  image: {
+    width: 300,
+    height: 300,
+    borderRadius: 8,
+    marginRight: 10,
+  },
+  arrow: {
+    fontSize: 18,
+    color: "#2563eb",
+  },
+  toggleHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+});
 
 export default KnowledgeCard;
